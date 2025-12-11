@@ -29,13 +29,21 @@ class C {
     }
 }
 
+
 class B {
     private C next;
+
     public void setNext(C next) {
         this.next = next;
     }
+
     public String process(String input) {
-        return next.process(input + "E");
+        // --- התקלה המכוונת ---
+        // שולחים את הקלט לחוליה הבאה (C) אבל מתעלמים מהתוצאה (update)
+        String update = next.process(input + "E");
+
+        // מחזירים רק את העיבוד המקומי וקוטעים את השרשרת
+        return input + "E";
     }
 }
 
